@@ -1,0 +1,13 @@
+package com.joaoVitor1009.workshopmongo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class WorkshopmongoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
