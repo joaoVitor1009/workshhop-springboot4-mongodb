@@ -14,8 +14,7 @@ public class UserService {
     private UserRepository repo;
 
     public List<User> findAll() {
-        List<User> list = repo.findAll();
-        System.out.println("Quantidade de usuários: " + list.size());
-        return list;
+        return repo.findAll();
+
     }
 }
