@@ -1,11 +1,12 @@
 package com.joaoVitor1009.workshopmongo.DTO;
 
 import com.joaoVitor1009.workshopmongo.domain.User;
+import org.bson.types.ObjectId;
 
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
-    private  static final long seriAlVersionUID = 1;
+    private  static final long seriAlVersionUID = 1L;
 
     private String id;
     private String name;
