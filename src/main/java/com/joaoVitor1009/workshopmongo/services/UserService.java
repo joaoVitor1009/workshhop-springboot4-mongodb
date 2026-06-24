@@ -1,5 +1,6 @@
 package com.joaoVitor1009.workshopmongo.services;
 
+import com.joaoVitor1009.workshopmongo.DTO.UserDTO;
 import com.joaoVitor1009.workshopmongo.domain.User;
 import com.joaoVitor1009.workshopmongo.repositories.UserRepository;
 import com.joaoVitor1009.workshopmongo.services.exception.ObjectNotFoundException;
@@ -30,6 +31,13 @@ public class UserService {
             throw new ObjectNotFoundException("User Not Found");
         }
         return u;
+    }
 
+    public User insert (User obj){
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDTO){
+        return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
     }
 }
