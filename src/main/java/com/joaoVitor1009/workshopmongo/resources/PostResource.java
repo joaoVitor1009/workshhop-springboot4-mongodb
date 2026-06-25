@@ -28,5 +28,4 @@ public class PostResource {
         return ResponseEntity.ok().body(post);
     }
 
-
 }

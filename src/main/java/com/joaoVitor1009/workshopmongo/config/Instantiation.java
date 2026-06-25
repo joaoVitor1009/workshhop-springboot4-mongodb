@@ -1,6 +1,7 @@
 package com.joaoVitor1009.workshopmongo.config;
 
 import com.joaoVitor1009.workshopmongo.DTO.AuthorDTO;
+import com.joaoVitor1009.workshopmongo.DTO.CommentDTO;
 import com.joaoVitor1009.workshopmongo.domain.Post;
 import com.joaoVitor1009.workshopmongo.domain.User;
 import com.joaoVitor1009.workshopmongo.repositories.PostRepository;
@@ -36,6 +37,14 @@ public class Instantiation implements CommandLineRunner {
 
         Post post1 = new Post(null,sdf.parse("21/03/2018"), "Partiu Viagem", "Vou viajar para SP!!!", new AuthorDTO(maria));
         Post post2 = new Post(null,sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje",new AuthorDTO(maria));
+
+        CommentDTO c1 = new CommentDTO("Boa viagem mana!", sdf.parse("21/03/2018"),new AuthorDTO(bob));
+        CommentDTO c2 = new CommentDTO("tenha uma otima viagem", sdf.parse("22/03/2018"),new AuthorDTO(alex));
+        CommentDTO c3 = new CommentDTO("Fico feliz, bom dia", sdf.parse("23/03/2018"),new AuthorDTO(alex));
+
+        post1.getCommentDTO().addAll(Arrays.asList(c1, c2));
+        post2.getCommentDTO().addAll(Arrays.asList(c3));
+
         postRepository.saveAll(Arrays.asList(post1,post2));
 
         maria.getPosts().addAll(Arrays.asList(post1,post2));
