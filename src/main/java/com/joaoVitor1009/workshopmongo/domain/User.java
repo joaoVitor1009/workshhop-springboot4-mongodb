@@ -2,9 +2,12 @@ package com.joaoVitor1009.workshopmongo.domain;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Document(collection = "user")
@@ -15,6 +18,8 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String email;
+    @DBRef(lazy = true)
+    private List<Post> pots = new ArrayList<>();
 
     public User() {
     }
@@ -47,6 +52,10 @@ public class User implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Post> getPots() {
+        return pots;
     }
 
     @Override
